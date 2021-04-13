@@ -1,0 +1,16 @@
+.nav-tabs .nav-link{
+    cursor: pointer;
+    color:  #fff;
+    margin-left: 10px;
+}
+
+.nav-tabs .nav-link.selected{
+    color: #ff9900;
+    border-color: #e9ecef #e9ecef #dee2e6;
+}
+
+.wrapper{
+    
+    min-height: 81.3vh;
+
+}
