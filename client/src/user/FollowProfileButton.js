@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {follow, unfollow} from './apiUser';
+import { follow, unfollow } from './apiUser';
 
 
 

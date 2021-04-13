@@ -3,7 +3,7 @@ import FacebookLogin from 'react-facebook-login';
 import { Redirect } from "react-router-dom";
 import GoogleLogin from "react-google-login";
 import { socialLogin, authenticate } from "../auth";
- 
+
 class SocialLogin extends Component {
     constructor() {
         super();
@@ -11,7 +11,7 @@ class SocialLogin extends Component {
             redirectToReferrer: false
         };
     }
- 
+
     responseGoogle = response => {
         console.log("this comes from google", response);
         const { googleId, name, email, imageUrl } = response.profileObj;
@@ -21,7 +21,7 @@ class SocialLogin extends Component {
             email: email,
             imageUrl: imageUrl
         };
-         console.log("user obj to social login: ", user);
+        console.log("user obj to social login: ", user);
         socialLogin(user).then(data => {
             console.log("signin data: ", data);
             if (data.error) {
@@ -55,44 +55,44 @@ class SocialLogin extends Component {
                 });
             }
         });
-      };
-      
- componentClicked = () => {
-        console.log( "Clicked!" )
-      };
- 
+    };
+
+    componentClicked = () => {
+        console.log("Clicked!")
+    };
+
     render() {
         // redirect
         const { redirectToReferrer } = this.state;
         if (redirectToReferrer) {
             return <Redirect to="/" />;
         }
- 
+
         return (
             <div>
-            
-            <GoogleLogin
-                clientId="590589910815-gb1hotl5nnh2ooh5q8177jk50nshojpk.apps.googleusercontent.com"
-                buttonText="Login with Google"
-                onSuccess={this.responseGoogle}
-                onFailure={this.responseGoogle}
-            />
 
-            <p></p>
+                <GoogleLogin
+                    clientId="590589910815-gb1hotl5nnh2ooh5q8177jk50nshojpk.apps.googleusercontent.com"
+                    buttonText="Login with Google"
+                    onSuccess={this.responseGoogle}
+                    onFailure={this.responseGoogle}
+                />
 
-            <FacebookLogin
-                appId="1353682264756862"
-                autoLoad={false}
-                fields="name,email,picture, password"
-                buttonText="Facebook Login"
-                onClick={this.componentClicked}
-                callback={this.responseFacebook}
-            />
+                <p></p>
+
+                <FacebookLogin
+                    appId="1353682264756862"
+                    autoLoad={false}
+                    fields="name,email,picture, password"
+                    buttonText="Facebook Login"
+                    onClick={this.componentClicked}
+                    callback={this.responseFacebook}
+                />
             </div>
         );
     }
 }
- 
+
 export default SocialLogin;
 
 

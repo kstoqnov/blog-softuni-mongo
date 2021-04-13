@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { resetPassword } from "../auth";
- 
+
 class ResetPassword extends Component {
     constructor(props) {
         super(props);
@@ -10,11 +10,11 @@ class ResetPassword extends Component {
             error: ""
         };
     }
- 
+
     resetPassword = e => {
         e.preventDefault();
         this.setState({ message: "", error: "" });
- 
+
         resetPassword({
             newPassword: this.state.newPassword,
             resetPasswordLink: this.props.match.params.resetPasswordToken
@@ -28,19 +28,19 @@ class ResetPassword extends Component {
             }
         });
     };
- 
+
     render() {
         return (
             <div className="container">
                 <h2 className="mt-5 mb-5 jumbotron text-center">Reset your Password</h2>
- 
+
                 {this.state.message && (
                     <h4 className="bg-success">{this.state.message}</h4>
                 )}
                 {this.state.error && (
                     <h4 className="bg-warning">{this.state.error}</h4>
                 )}
- 
+
                 <form>
                     <div className="form-group mt-5">
                         <input
@@ -70,5 +70,5 @@ class ResetPassword extends Component {
         );
     }
 }
- 
+
 export default ResetPassword;

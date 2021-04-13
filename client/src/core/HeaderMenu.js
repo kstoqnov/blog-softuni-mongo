@@ -1,16 +1,13 @@
-import React  from 'react';
-import {withRouter,NavLink, Link} from 'react-router-dom';
-import {signout, isAuthenticated} from '../auth';
+import React from 'react';
+import { withRouter, NavLink, Link } from 'react-router-dom';
+import { signout, isAuthenticated } from '../auth';
 
-import './header-menu.css'
-
-
-const Menu =({history})=>(
+const Menu = ({ history }) => (
     <nav className="bg-primary p-1 mb-1">
         <ul className="nav nav-tabs container">
 
             <li className="nav-item">
-                <NavLink exact className="nav-link" activeClassName="selected"  to="/">Home</NavLink>
+                <NavLink exact className="nav-link" activeClassName="selected" to="/">Home</NavLink>
             </li>
 
             <li className="nav-item ">
@@ -21,7 +18,7 @@ const Menu =({history})=>(
                 <NavLink className="nav-link" activeClassName="selected" to="/contact">Contact</NavLink>
             </li>
 
-            {!isAuthenticated () && (
+            {!isAuthenticated() && (
                 <>
                     <li className="nav-item">
                         <NavLink className="nav-link" activeClassName="selected" to="/signin">Sign in</NavLink>
@@ -33,34 +30,34 @@ const Menu =({history})=>(
                 </>
             )}
 
-        {isAuthenticated () && (
-            <>
-                <li className="nav-item ">  
-                    <NavLink className="nav-link" to={`/user/findpeople/${isAuthenticated().user._id}`} activeClassName="selected">
-                        Find People
-                    </NavLink>  
-                </li>
-    
+            {isAuthenticated() && (
+                <>
+                    <li className="nav-item ">
+                        <NavLink className="nav-link" to={`/user/findpeople/${isAuthenticated().user._id}`} activeClassName="selected">
+                            Find People
+                    </NavLink>
+                    </li>
 
-                <li className="nav-item ">  
-                    <Link className="nav-link" to={`/post/create/${isAuthenticated().user._id}`}>
-                        Create Post
-                    </Link>  
-                </li>
 
-                <li className="nav-item ">
-                    <NavLink className="nav-link" to={`/user/${isAuthenticated().user._id}`} activeClassName="selected">
-                        {`${isAuthenticated().user.name}'s profile`}
-                    </NavLink>  
-                </li>
+                    <li className="nav-item ">
+                        <Link className="nav-link" to={`/post/create/${isAuthenticated().user._id}`}>
+                            Create Post
+                    </Link>
+                    </li>
 
-                <li className="nav-item ">
-                    <a className="nav-link" href=" #"  onClick={()=> signout(()=>history.push('/'))}>
-                        Sign out
+                    <li className="nav-item ">
+                        <NavLink className="nav-link" to={`/user/${isAuthenticated().user._id}`} activeClassName="selected">
+                            {`${isAuthenticated().user.name}'s profile`}
+                        </NavLink>
+                    </li>
+
+                    <li className="nav-item ">
+                        <a className="nav-link" href=" #" onClick={() => signout(() => history.push('/'))}>
+                            Sign out
                     </a>
-                </li>
-            </>
-        )}
+                    </li>
+                </>
+            )}
         </ul>
     </nav>
 );

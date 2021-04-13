@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { forgotPassword } from "../auth";
- 
+
 class ForgotPassword extends Component {
     state = {
         email: "",
         message: "",
         error: ""
     };
- 
+
     forgotPassword = e => {
         e.preventDefault();
         this.setState({ message: "", error: "" });
@@ -21,19 +21,19 @@ class ForgotPassword extends Component {
             }
         });
     };
- 
+
     render() {
         return (
             <div className="container">
                 <h2 className="mt-5 mb-5 jumbotron text-center">Ask for Password Reset</h2>
- 
+
                 {this.state.message && (
                     <h4 className="bg-success">{this.state.message}</h4>
                 )}
                 {this.state.error && (
                     <h4 className="bg-warning">{this.state.error}</h4>
                 )}
- 
+
                 <form>
                     <div className="form-group mt-5">
                         <input
@@ -63,5 +63,5 @@ class ForgotPassword extends Component {
         );
     }
 }
- 
+
 export default ForgotPassword;

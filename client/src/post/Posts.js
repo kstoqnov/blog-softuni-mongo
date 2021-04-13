@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import {list} from "./apiPost"
-import {Link} from 'react-router-dom'
+import { list } from "./apiPost"
+import { Link } from 'react-router-dom'
 import DefaultPost from '../images/post-default.jpg'
 
 class Posts extends Component {
 
-    constructor(){
+    constructor() {
         super()
-        this.state={
-            posts:[]
+        this.state = {
+            posts: []
         }
     }
 
@@ -42,9 +42,8 @@ class Posts extends Component {
                         <div className="card col-md-3 ml-2 mb-1" key={i}>
                             <div className="card-body">
                                 <img
-                                    src={`${
-                                        process.env.REACT_APP_API_URL
-                                    }/post/photo/${post._id}`}
+                                    src={`${process.env.REACT_APP_API_URL
+                                        }/post/photo/${post._id}`}
                                     alt={post.title}
                                     onError={i =>
                                         (i.target.src = `${DefaultPost}`)
@@ -76,14 +75,14 @@ class Posts extends Component {
     };
 
     render() {
-        const {posts} = this.state;
+        const { posts } = this.state;
         return (
             <div className="container">
-            <h2 className="mt-5 mb-5 jumbotron text-center">
-            {!posts.length? "Loading...": "Recent Posts"}
-            </h2>
-            {this.renderPosts(posts)}
-           
+                <h2 className="mt-5 mb-5 jumbotron text-center">
+                    {!posts.length ? "Loading..." : "Recent Posts"}
+                </h2>
+                {this.renderPosts(posts)}
+
             </div>
         );
     }

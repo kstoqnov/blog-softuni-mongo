@@ -1,12 +1,12 @@
 import React from 'react';
-import {BrowserRouter} from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import MainRouter from './MainRouter';
-import '@fortawesome/fontawesome-free/css/all.min.css'; 
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import './style.css'
 
-const App =()=>(
+const App = () => (
   <BrowserRouter>
-    <MainRouter/>
+    <MainRouter />
   </BrowserRouter>
 )
 

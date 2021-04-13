@@ -1,65 +1,66 @@
-export const read = (userId, token)=>{
-    return fetch(`${process.env.REACT_APP_API_URL}/user/${userId}`,{
+export const read = (userId, token) => {
+    return fetch(`${process.env.REACT_APP_API_URL}/user/${userId}`, {
         method: "GET",
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}` 
-                } 
-            })
-        .then(response=>{
-        return response.json();
+            Authorization: `Bearer ${token}`
+        }
     })
-        .catch(err=>console.log("apiUser:",err))
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log("apiUser:", err))
 };
 
 //remove user
-export const remove = (userId, token)=>{
-    return fetch(`${process.env.REACT_APP_API_URL}/user/${userId}`,{
+export const remove = (userId, token) => {
+    return fetch(`${process.env.REACT_APP_API_URL}/user/${userId}`, {
         method: "DELETE",
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}` 
-                } 
-            })
-        .then(response=>{
-        return response.json();
+            Authorization: `Bearer ${token}`
+        }
     })
-        .catch(err=>console.log(err))
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err))
 };
 
 //create list of users
-export const list =() =>{
-    return fetch(`${process.env.REACT_APP_API_URL}/users`,{
+export const list = () => {
+    return fetch(`${process.env.REACT_APP_API_URL}/users`, {
         method: "GET"
-            })
-        .then(response=>{
-        return response.json();
     })
-        .catch(err=>console.log(err))
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => console.log(err))
 };
 
 //update user info
-export const update = (userId, token, user)=>{
-    return fetch(`${process.env.REACT_APP_API_URL}/user/${userId}`,{
+export const update = (userId, token, user) => {
+    return fetch(`${process.env.REACT_APP_API_URL}/user/${userId}`, {
         method: "PUT",
         headers: {
             Accept: "application/json",
-            Authorization: `Bearer ${token}` },
+            Authorization: `Bearer ${token}`
+        },
         body: user
-        })
-        .then(response=>{
-            console.log(response);
-           
-        return response.json();
     })
-        .catch(err=>console.log(err))
+        .then(response => {
+            console.log(response);
+
+            return response.json();
+        })
+        .catch(err => console.log(err))
 };
 
-export const updateUser = (user, next) =>{
-    if(typeof window !=='undefined'){
-        if(localStorage.getItem('jwt')){
+export const updateUser = (user, next) => {
+    if (typeof window !== 'undefined') {
+        if (localStorage.getItem('jwt')) {
             let auth = JSON.parse(localStorage.getItem('jwt'))
             auth.user = user
             localStorage.setItem('jwt', JSON.stringify(auth))

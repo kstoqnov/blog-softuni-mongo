@@ -1,4 +1,4 @@
-    
+
 import React, { Component } from "react";
 import { singlePost, update } from "./apiPost";
 import { isAuthenticated } from "../auth";
@@ -16,7 +16,7 @@ class EditPost extends Component {
             error: "",
             fileSize: 0,
             loading: false,
-            posterId:""
+            posterId: ""
         };
     }
 
@@ -100,7 +100,7 @@ class EditPost extends Component {
                     accept="image/*"
                     className="form-control w-25"
                     required="required"
-                    
+
                 />
             </div>
             <div className="form-group">
@@ -169,10 +169,10 @@ class EditPost extends Component {
                 )}
 
                 <img src={`${process.env.REACT_APP_API_URL}/post/photo/${id}`}
-                                    alt={title}
-                                    onError={i =>(i.target.src = `${DefaultPost}`)}
-                                    className="img-thunbnail mb-3 img-fluid"
-                                />
+                    alt={title}
+                    onError={i => (i.target.src = `${DefaultPost}`)}
+                    className="img-thunbnail mb-3 img-fluid"
+                />
 
                 {isAuthenticated().user.role === "admin" &&
                     this.editPostForm(title, body)}

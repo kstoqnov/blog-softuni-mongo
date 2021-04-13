@@ -1,17 +1,17 @@
 export const signup = user => {
     return fetch(`${process.env.REACT_APP_API_URL}/signup`,
-    {
-        method: "POST",
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(user)       
-     })
-     .then(response=>{
-         return response.json()
-     })
-     .catch(err=> console.log("error" + err))
+        {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(user)
+        })
+        .then(response => {
+            return response.json()
+        })
+        .catch(err => console.log("error" + err))
 }
 
 
@@ -29,18 +29,18 @@ export const setName = (name, next) => {
     }
 };
 
-export const signout = (next) =>{
+export const signout = (next) => {
     //delete token
-    if(typeof window !=="undefined")
-    localStorage.removeItem("jwt")
+    if (typeof window !== "undefined")
+        localStorage.removeItem("jwt")
     next()
-    return fetch(`${process.env.REACT_APP_API_URL}/signout`,{
+    return fetch(`${process.env.REACT_APP_API_URL}/signout`, {
         method: "GET"
     })
-    .then(response=>{
-        return response.json()
-    })
-    .catch(err=> console.log(err));
+        .then(response => {
+            return response.json()
+        })
+        .catch(err => console.log(err));
 };
 
 export const isAuthenticated = () => {
