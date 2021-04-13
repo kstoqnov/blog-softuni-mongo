@@ -15,24 +15,25 @@ const Menu = ({ history }) => (
             </li>
 
             <li className="nav-item ">
+                <NavLink className="nav-link" activeClassName="selected" to="/feature">Features</NavLink>
+            </li>
+            <li className="nav-item ">
                 <NavLink className="nav-link" activeClassName="selected" to="/contact">Contact</NavLink>
             </li>
-
             {!isAuthenticated() && (
                 <>
-                    <li className="nav-item">
+                    <li className="nav-item  m-left">
                         <NavLink className="nav-link" activeClassName="selected" to="/signin">Sign in</NavLink>
                     </li>
 
-                    <li className="nav-item">
+                    <li className="nav-item float-right">
                         <NavLink className="nav-link" activeClassName="selected" to="/signup">Sign up</NavLink>
                     </li>
                 </>
             )}
-
             {isAuthenticated() && (
                 <>
-                    <li className="nav-item ">
+                    <li className="nav-item">
                         <NavLink className="nav-link" to={`/user/findpeople/${isAuthenticated().user._id}`} activeClassName="selected">
                             Find People
                     </NavLink>
@@ -58,7 +59,9 @@ const Menu = ({ history }) => (
                     </li>
                 </>
             )}
+        
         </ul>
+        
     </nav>
 );
 

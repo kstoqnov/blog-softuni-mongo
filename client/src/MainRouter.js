@@ -16,6 +16,7 @@ import ForgotPassword from "./user/ForgotPassword";
 import ResetPassword from "./user/ResetPassword";
 import ContactPage from './core/ContactPage';
 import FooterPage from './core/FooterPage';
+import FeaturesPage from './core/FeaturesPage';
 
 
 const MainRouter = () => (
@@ -31,6 +32,7 @@ const MainRouter = () => (
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/signin" component={Signin} />
             <Route exact path="/contact" component={ContactPage} />
+            <Route exact path="/feature" component={FeaturesPage} />
             <PrivateRoute exact path="/user/edit/:userId" component={EditProfile} />
             <PrivateRoute exact path="/user/findpeople/:userId" component={FindPeople} />
             <PrivateRoute exact path="/post/create/:userId" component={NewPost} />

@@ -3,7 +3,7 @@ import Posts from '../post/Posts'
 
 
 const Home = () => (
-    <section className="container wrapper mt-2">
+    <section className="container wrapper mt-1">
         <div className="jumbotron">
             <h2 className="font-weight-bold text-center">Home</h2>
             <p className="lead text-center">Welcome!</p>
