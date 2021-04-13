@@ -3,7 +3,7 @@ require('dotenv').config();
 const expressJwt = require("express-jwt");
 const User = require("../models/user");
 const _ = require("lodash");
-const { sendEmail } = require("../helpers");
+const { sendEmail } = require("../utils");
 
 
 exports.signup = async (req, res) => {

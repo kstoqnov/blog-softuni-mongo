@@ -4,7 +4,7 @@ const {
     allUsers,
     getUser,
     updateUser,
-    deleteUser, 
+    deleteUser,
     userPhoto,
     addFollowing,
     addFollower,
@@ -12,13 +12,13 @@ const {
     removeFollower,
     findPeople
 
-} = require ("../controllers/user");
+} = require("../controllers/user");
 const { requireSignin } = require("../controllers/auth");
 
 const router = express.Router();
 
-router.put('/user/follow', requireSignin, addFollowing, addFollower )
-router.put('/user/unfollow', requireSignin, removeFollowing, removeFollower )
+router.put('/user/follow', requireSignin, addFollowing, addFollower)
+router.put('/user/unfollow', requireSignin, removeFollowing, removeFollower)
 
 router.get("/users", allUsers);
 router.get("/user/:userId", requireSignin, getUser);
@@ -28,12 +28,12 @@ router.get("/user/findpeople/:userId", requireSignin, findPeople);
 
 
 
-router.put("/user/:userId", requireSignin, updateUser); //put for make changesn
+router.put("/user/:userId", requireSignin, updateUser); //put for make change sn
 
-router.delete("/user/:userId", requireSignin, deleteUser); 
+router.delete("/user/:userId", requireSignin, deleteUser);
 
-//any route contating userId will execute first userById
-router.param("userId",userById)
+//any route containing userId will execute first userById
+router.param("userId", userById)
 
 
 

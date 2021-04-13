@@ -1,22 +1,22 @@
-const express = require ("express");
+const express = require("express");
 
 const {
-    
-    getPosts, 
-    createPost, 
-    postsByUser, 
-    postById, 
-    isPoster, 
-    deletePost, 
-    updatePost, 
-    photo, 
+
+    getPosts,
+    createPost,
+    postsByUser,
+    postById,
+    isPoster,
+    deletePost,
+    updatePost,
+    photo,
     singlePost
 
-} = require ("../controllers/post");
+} = require("../controllers/post");
 
-const {userById} = require ("../controllers/user");
-const {requireSignin} = require("../controllers/auth");
-const {createPostValidator} = require ('../validator');
+const { userById } = require("../controllers/user");
+const { requireSignin } = require("../controllers/auth");
+const { createPostValidator } = require('../validator');
 
 const router = express.Router();
 //GET
@@ -38,9 +38,9 @@ router.put("/post/:postId", requireSignin, isPoster, updatePost); //put for make
 //DELETE
 router.delete("/post/:postId", requireSignin, isPoster, deletePost)
 
-//any route contating userId will execute first userById
-router.param("userId",userById)
-//any route contating postId will execute first postById
-router.param("postId",postById)
+//any route containing userId will execute first userById
+router.param("userId", userById)
+//any route containing postId will execute first postById
+router.param("postId", postById)
 
 module.exports = router;
