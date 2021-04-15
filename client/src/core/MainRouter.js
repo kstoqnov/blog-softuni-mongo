@@ -1,22 +1,22 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Home from './core/HomePage'
-import HeaderMenu from './core/HeaderMenu'
-import Signup from './user/Signup'
-import Signin from './user/Signin'
-import Profile from './user/Profile'
-import Users from './user/Users'
-import EditProfile from './user/EditProfile'
-import FindPeople from './user/FindPeople'
-import NewPost from './post/NewPost'
-import SinglePost from './post/SinglePost'
-import PrivateRoute from './auth/PrivateRoute'
-import EditPost from './post/EditPost'
-import ForgotPassword from "./user/ForgotPassword";
-import ResetPassword from "./user/ResetPassword";
-import ContactPage from './core/ContactPage';
-import FooterPage from './core/FooterPage';
-import FeaturesPage from './core/FeaturesPage';
+import Home from './HomePage'
+import HeaderMenu from './HeaderMenu'
+import Signup from '../user/Signup'
+import Signin from '../user/Signin'
+import Profile from '../user/Profile'
+import Users from '../user/Users'
+import EditProfile from '../user/EditProfile'
+import FindPeople from '../user/FindPeople'
+import NewPost from '../post/NewPost'
+import SinglePost from '../post/SinglePost'
+import PrivateRoute from '../auth/route/PrivateRoute'
+import EditPost from '../post/EditPost'
+import ForgotPassword from "../user/ForgotPassword";
+import ResetPassword from "../user/ResetPassword";
+import ContactPage from './ContactPage';
+import FooterPage from './FooterPage';
+import FeaturesPage from './FeaturesPage';
 
 
 const MainRouter = () => (
