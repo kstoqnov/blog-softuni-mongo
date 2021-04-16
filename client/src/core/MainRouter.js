@@ -32,7 +32,7 @@ const MainRouter = () => (
             <PrivateRoute exact path="/post/edit/:postId" component={EditPost} />
             <Route exact path="/users" component={() => <ErrorBoundary><Users/></ErrorBoundary>} />
             <Route exact path="/signup" component={() => <ErrorBoundary><Signup/></ErrorBoundary>} />
-            <Route exact path="/signin" component={() => <ErrorBoundary><Signin/></ErrorBoundary>} />
+            <Route exact path="/signin" component={Signin} />
             <Route exact path="/contact" component={() => <ErrorBoundary><ContactPage/></ErrorBoundary>} />
             <Route exact path="/feature" component={() => <ErrorBoundary><FeaturesPage/></ErrorBoundary>} />
             <PrivateRoute exact path="/user/edit/:userId" component={EditProfile} />

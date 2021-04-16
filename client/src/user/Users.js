@@ -1,35 +1,33 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { list } from "./apiUser"
-import DefaultProfile from '../images/avatar.jpg'
 import { Link } from 'react-router-dom'
+import DefaultProfile from '../images/avatar.jpg'
 
-class Users extends Component {
 
-    constructor() {
-        super()
-        this.state = {
-            users: []
-        }
-    }
+const Users = () => {
 
+    const [users,setUsers] = useState([]);
 
     //init list of users
-    componentDidMount = () => {
+    useEffect(() => {
         list()
             .then(data => {
                 if (data.error) {
                     console.log(data.error)
                 } else {
-                    this.setState({ users: data })
+                    setUsers(data)
                 }
             })
-    }
+       
+    }, [])
 
-    //small cards of all users with dafault image
-    renderUsers = users => (
+   
+
+    //small cards of all users with default image
+    const renderUsers = (users) => (
         <div className="row container">
             {users.map((user, i) => (
-                <div className="card col-md-4 p-1" key={i}>
+                <div className="card col-md-4 p-1 ml-1" key={i}>
                     <img
                         className="img-thumbnail img-fluid"
                         src={`${process.env.REACT_APP_API_URL}/user/photo/${user._id}`}
@@ -45,7 +43,7 @@ class Users extends Component {
                             className="btn btn-primary"
                             to={`/user/${user._id}`}>
                             View profile
-                </Link>
+                        </Link>
 
                     </div>
                 </div>
@@ -53,17 +51,14 @@ class Users extends Component {
         </div>
     );
 
+    return (
+        <div className="container wrapper">
+            <h2 className="text-center jumbotron">Users</h2>
 
-    render() {
-        const { users } = this.state;
-        return (
-            <div className="container wrapper">
-                <h2 className="text-center jumbotron">Users</h2>
-
-                {this.renderUsers(users)}
-            </div>
-        );
-    }
+            {renderUsers(users)}
+        </div>
+    );
+    
 }
 
 export default Users;
