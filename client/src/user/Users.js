@@ -25,7 +25,7 @@ const Users = () => {
     const renderUsers = (users) => (
         <div className="row container">
             {users.map((user, i) => (
-                <div className="card col-md-4 p-1 ml-1" key={user._id}>
+                <div className="card col-3 p-1 mr-3" key={user._id}>
                     <img
                         className="img-thumbnail img-fluid"
                         src={`${process.env.REACT_APP_API_URL}/user/photo/${user._id}`}
