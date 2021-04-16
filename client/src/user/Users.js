@@ -6,7 +6,7 @@ import DefaultProfile from '../images/avatar.jpg'
 
 const Users = () => {
 
-    const [users,setUsers] = useState([]);
+    const [users, setUsers] = useState([]);
 
     //init list of users
     useEffect(() => {
@@ -18,10 +18,8 @@ const Users = () => {
                     setUsers(data)
                 }
             })
-       
-    }, [])
 
-   
+    }, [])
 
     //small cards of all users with default image
     const renderUsers = (users) => (
@@ -58,7 +56,7 @@ const Users = () => {
             {renderUsers(users)}
         </div>
     );
-    
+
 }
 
 export default Users;
