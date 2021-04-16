@@ -14,7 +14,7 @@ import EditPost from '../post/EditPost'
 import ForgotPassword from "../user/ForgotPassword";
 import ResetPassword from "../user/ResetPassword";
 import ContactPage from './ContactPage';
-import FooterPage from './FooterPage';
+import Footer from './Footer';
 import FeaturesPage from './FeaturesPage';
 
 import { Route, Switch } from 'react-router-dom';
@@ -42,7 +42,7 @@ const MainRouter = () => (
             <PrivateRoute exact path="/user/:userId" component={Profile} />
 
         </Switch>
-        <FooterPage />
+        <Footer />
     </>
 );
 
