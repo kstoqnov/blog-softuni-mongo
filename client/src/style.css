@@ -18,3 +18,11 @@
 .m-left{
     margin-left: 50%;
 }
+
+.error-bound {
+
+    background-color: #ffcc99;
+    color: white; 
+    width: 500px;
+    height: 60px;
+}
