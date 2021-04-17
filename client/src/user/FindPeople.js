@@ -33,7 +33,7 @@ class FindPeople extends Component {
             })
     }
 
-    //small cards of all users with dafault image
+    //small cards of all users with default image
     renderUsers = users => (
         <div className="row">
             {users.map((user, i) => (
