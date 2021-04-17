@@ -1,8 +1,9 @@
-#####
-
-BLOG PROJECT - MERN STACK
+##### BLOG SYSTEM - Server -   MERN STACK
 
 MongoDB, Express, React, NodeJS
+
+React bootstrap material ui - https://mdbootstrap.com/docs/react/
+
 
 Solid Authentication with Password Forgot/Password Reset using JWT
 
@@ -10,13 +11,16 @@ Authorization
 
 implemented functionality : CRUD, Image Upload, User Posts Relationships
 
-to do: follow, unfollow, likes, comments, Social Login using JWT
+to do: likes, comments, Social Login using JWT, search 
 
 ### env file server
 
 MONGODB_URI=url bg
 JWT_SECRET=secret
 PORT=server
+
+
+#
 
 # Getting Started with Create React App
 
