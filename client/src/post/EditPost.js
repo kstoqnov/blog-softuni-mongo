@@ -98,7 +98,7 @@ class EditPost extends Component {
                     onChange={this.handleChange("photo")}
                     type="file"
                     accept="image/*"
-                    className="form-control w-25"
+                    className="form-control"
                     required="required"
 
                 />
@@ -108,7 +108,7 @@ class EditPost extends Component {
                 <input
                     onChange={this.handleChange("title")}
                     type="text"
-                    className="form-control w-25"
+                    className="form-control"
                     value={title}
                     required="required"
                 />
@@ -119,7 +119,7 @@ class EditPost extends Component {
                 <textarea
                     onChange={this.handleChange("body")}
                     type="text"
-                    className="form-control w-25"
+                    className="form-control"
                     value={body}
                     required="required"
                 />
@@ -152,33 +152,39 @@ class EditPost extends Component {
         return (
             <div className="container">
                 <h2 className="mt-5 mb-5 jumbotron text-center">{title}</h2>
+                <div className="d-flex flex-column align-items-center w-100">
 
-                <div
-                    className="alert alert-danger"
-                    style={{ display: error ? "" : "none" }}
-                >
-                    {error}
+                    <div
+                        className="alert alert-danger"
+                        style={{ display: error ? "" : "none" }}
+                    >
+                        {error}
+                    </div>
+
+                    {loading ? (
+                        <div className="jumbotron text-center">
+                            <h2>Loading...</h2>
+                        </div>
+                    ) : (
+                        ""
+                    )}
+
+                    <img src={`${process.env.REACT_APP_API_URL}/post/photo/${id}`}
+                        alt={title}
+                        onError={i => (i.target.src = `${DefaultPost}`)}
+                        className="img-thunbnail mb-3 img-fluid"
+                    />
+
+                    {isAuthenticated().user.role === "admin" &&
+                        this.editPostForm(title, body)}
+
+                    {isAuthenticated().user._id === posterId &&
+                        this.editPostForm(title, body)}
+
+
+
                 </div>
 
-                {loading ? (
-                    <div className="jumbotron text-center">
-                        <h2>Loading...</h2>
-                    </div>
-                ) : (
-                    ""
-                )}
-
-                <img src={`${process.env.REACT_APP_API_URL}/post/photo/${id}`}
-                    alt={title}
-                    onError={i => (i.target.src = `${DefaultPost}`)}
-                    className="img-thunbnail mb-3 img-fluid"
-                />
-
-                {isAuthenticated().user.role === "admin" &&
-                    this.editPostForm(title, body)}
-
-                {isAuthenticated().user._id === posterId &&
-                    this.editPostForm(title, body)}
             </div>
         );
     }

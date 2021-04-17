@@ -78,16 +78,16 @@ class NewPost extends Component {
         <form>
             <div className="form-group">
                 <label className="text-muted">Post photo</label>
-                <input onChange={this.handleChange("photo")} type="file" accept="image/*" className="form-control w-25" required="required" />
+                <input onChange={this.handleChange("photo")} type="file" accept="image/*" className="form-control" required="required" />
             </div>
             <div className="form-group">
                 <label className="text-muted">Title</label>
-                <input onChange={this.handleChange("title")} type="text" value={title} className="form-control w-25" required="required" />
+                <input onChange={this.handleChange("title")} type="text" value={title} className="form-control" required="required" />
             </div>
 
             <div className="form-group">
                 <label className="text-muted">Body</label>
-                <input onChange={this.handleChange("body")} type="text" value={body} className="form-control w-25" required="required" />
+                <input onChange={this.handleChange("body")} type="text" value={body} className="form-control" required="required" />
             </div>
 
 
@@ -115,15 +115,20 @@ class NewPost extends Component {
         return (
             <div className="container wrapper">
                 <h2 className="mt-5 mb-5 jumbotron text-center">Create a new post</h2>
-                <div className="alert alert-danger"
-                    style={{ display: error ? "" : "none" }}>
-                    {error}
+                <div className="d-flex flex-column align-items-center w-100">
+
+                    <div className="alert alert-danger"
+                        style={{ display: error ? "" : "none" }}>
+                        {error}
+                    </div>
+
+                    {loading
+                        ? <div className="jumbotron text-center"><h2>Loading...</h2></div>
+                        : ""}
+                    {this.newPostForm(title, body)}
+
                 </div>
 
-                {loading
-                    ? <div className="jumbotron text-center"><h2>Loading...</h2></div>
-                    : ""}
-                {this.newPostForm(title, body)}
             </div>
         );
     }
