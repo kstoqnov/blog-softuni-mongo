@@ -30,14 +30,17 @@ class Signup extends Component {
         };
         signup(user)
             .then(data => {
-                if (data.error) this.setState({ error: data.error })
-                else this.setState({
-                    error: "",
-                    name: "",
-                    password: "",
-                    email: "",
-                    open: true
-                })
+                if (data.error) {
+                    this.setState({ error: data.error })
+                } else {
+                    this.setState({
+                        error: "",
+                        name: "",
+                        password: "",
+                        email: "",
+                        open: true
+                    })
+                }
             })
     };
 
@@ -47,17 +50,17 @@ class Signup extends Component {
         <form>
             <div className="form-group">
                 <label className="text-muted">Name</label>
-                <input onChange={this.handleChange("name")} type="text" value={name} className="form-control w-25" required="required" />
+                <input onChange={this.handleChange("name")} type="text" value={name} className="form-control" required="required" />
             </div>
 
             <div className="form-group">
                 <label className="text-muted">Email</label>
-                <input onChange={this.handleChange("email")} type="text" value={email} className="form-control w-25" required="required" />
+                <input onChange={this.handleChange("email")} type="text" value={email} className="form-control" required="required" />
             </div>
 
             <div className="form-group">
                 <label className="text-muted">Password</label>
-                <input onChange={this.handleChange("password")} type="password" value={password} className="form-control w-25" required="required" />
+                <input onChange={this.handleChange("password")} type="password" value={password} className="form-control" required="required" />
             </div>
 
             <button onClick={this.clickSubmit} className="btn btn-raised btn-primary">Submit</button>
@@ -70,14 +73,20 @@ class Signup extends Component {
 
             <div className="container wrapper">
                 <h2 className="mt-5 mb-5 jumbotron text-center">Signup</h2>
-                <div className="alert alert-danger" style={{ display: error ? "" : "none" }}>
-                    {error}
-                </div>
-                <div className="alert alert-info" style={{ display: open ? "" : "none" }}>
-                    New account is successfully created. Please <Link to="/signin">Sign in</Link>.
+                <div className="d-flex flex-column align-items-center w-100">
+
+                    <div className="alert alert-danger" style={{ display: error ? "" : "none" }}>
+                        {error}
+                    </div>
+                    <div className="alert alert-info" style={{ display: open ? "" : "none" }}>
+                        New account is successfully created. Please <Link to="/signin">Sign in</Link>.
+                    </div>
+
+                    {!open && this.signupForm(name, email, password)}
+
+
                 </div>
 
-                {this.signupForm(name, email, password)}
 
             </div>
         );

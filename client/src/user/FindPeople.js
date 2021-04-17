@@ -37,10 +37,9 @@ class FindPeople extends Component {
     renderUsers = users => (
         <div className="row">
             {users.map((user, i) => (
-                <div className="card col-md-4" key={i}>
+                <div className="card col-3 p-1 mr-3 mt-1" key={user._id}>
                     <img
-                        style={{ height: "200px", width: "auto" }}
-                        className="img-thumbnail"
+                        className="img-thumbnail img-fluid"
                         src={`${process.env.REACT_APP_API_URL}/user/photo/${user._id}`}
                         onError={i => (i.target.src = `${DefaultProfile}`)}
                         alt={user.name}

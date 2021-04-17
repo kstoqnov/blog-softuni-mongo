@@ -96,4 +96,4 @@ Authorization
 
 implemented functionality : CRUD, Image Upload, User Posts Relationships
 
-to do: follow, unfollow, likes, comments, Social Login using JWT, search 
+to do: likes, comments, Social Login using JWT, search 

@@ -55,12 +55,12 @@ class Signin extends Component {
 
             <div className="form-group">
                 <label className="text-muted">Email</label>
-                <input onChange={this.handleChange("email")} type="text" value={email} className="form-control w-25" required="required" />
+                <input onChange={this.handleChange("email")} type="text" value={email} className="form-control" required="required" />
             </div>
 
             <div className="form-group">
                 <label className="text-muted">Password</label>
-                <input onChange={this.handleChange("password")} type="password" value={password} className="form-control w-25" required="required" />
+                <input onChange={this.handleChange("password")} type="password" value={password} className="form-control" required="required" />
             </div>
 
             <button onClick={this.clickSubmit} className="btn btn-raised btn-primary">Submit</button>
@@ -77,22 +77,26 @@ class Signin extends Component {
 
             <div className="container wrapper">
                 <h2 className="mt-5 mb-5 jumbotron text-center">Login</h2>
-                <div className="alert alert-danger" style={{ display: error ? "" : "none" }}>
-                    {error}
+                
+                <div className="d-flex flex-column align-items-center w-100">
+
+                    <div className="alert alert-danger" style={{ display: error ? "" : "none" }}>
+                        {error}
+                    </div>
+                    {loading ? <div className="jumbotron text-center">
+                        <h2>Loading...</h2>
+                    </div> : ""}
+
+                    {this.signinForm(email, password)}
+
+
+                    <p>
+                        <Link to="/forgot-password" className="btn btn-raised btn-danger">{" "}
+                            Forgot Password?
+                        </Link>
+                    </p>
+
                 </div>
-                {loading ? <div className="jumbotron text-center">
-                    <h2>Loading...</h2>
-                </div> : ""}
-
-                {this.signinForm(email, password)}
-
-
-                <p>
-                    <Link to="/forgot-password" className="btn btn-raised btn-danger">{" "}
-                        Forgot Password?
-                    </Link>
-                </p>
-
 
             </div>
         );
