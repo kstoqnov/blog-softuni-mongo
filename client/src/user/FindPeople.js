@@ -53,13 +53,13 @@ class FindPeople extends Component {
                             className="btn btn-primary"
                             to={`/user/${user._id}`}>
                             View profile
-                </Link>
+                        </Link>
 
                         <button
                             onClick={() => this.clickFollow(user, i)}
                             className="btn btn-raised btn-info float-right btn-sm">
                             Follow
-            </button>
+                        </button>
                     </div>
                 </div>
             ))}
